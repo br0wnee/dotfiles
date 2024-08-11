@@ -1,0 +1,44 @@
+theme = "sonokai"
+
+[keys.normal]
+A-left = "move_prev_word_start"
+A-right = "move_next_word_start"
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
+esc = ["collapse_selection", "keep_primary_selection"]
+
+
+
+[keys.insert]
+A-left = "move_prev_word_start"
+A-right = "move_next_word_start"
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
+C-h = "move_char_left"
+C-l = "move_char_right"
+
+[editor]
+line-number = "relative"
+mouse = true
+bufferline = "always"
+
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
