@@ -19,4 +19,4 @@ make delete
 ```
 ## TODO!
 
-- [] - fix the submodule issue 
+- [ ] fix the submodule issue 
