@@ -148,6 +148,8 @@ remove_from_path() {
 # 	command rm -f -- "$tempfile" 2>/dev/null
 # }
 
+#Change zcompdump dir
+export ZDOTDIR=/home/bartek/.config/zsh
 
 #Set the editor
 export EDITOR=hx
@@ -166,6 +168,7 @@ alias config='/usr/bin/git --git-dir=/home/bartek/.cfg/ --work-tree=/home/bartek
 alias ncspot='flatpak run io.github.hrkfdn.ncspot'
 alias prime-run='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
 alias gpu-temp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'
+alias mpv-term='mpv --profile=sw-fast --vo=kitty --vo-kitty-use-shm=yes'
 
 #Custom paths
 #add_to_path "$HOME/Clion/bin"
