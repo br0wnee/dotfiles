@@ -1,0 +1,248 @@
+* {
+  border: none;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+@import "/home/br0wnie/.config/colors.css";
+
+window#waybar {
+  background-color: transparent;
+  color: black;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+
+#workspaces button {
+  background: @primary;
+  color: @text;
+  padding: 0px 14px 0px 14px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+  background: #A6808C;
+  color: black;
+}
+
+#workspaces button.active {
+  background-color: @secondary;
+}
+
+#workspaces button.focused:hover {
+  background: lightblue;
+  color: black;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#mode {
+  background-color: #64727D;
+  border-bottom: 3px solid black;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#custom-launcher,
+#custom-power,
+#custom-layout,
+#custom-updater,
+#custom-snip,
+#taskbar,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+  padding: 0 10px;
+  color: @text;
+}
+
+#window,
+#workspaces
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+  margin-left: 0px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+  margin-right: 0px;
+}
+
+#clock {
+  background-color: @primary;
+  color: @text;
+
+}
+
+
+@keyframes blink {
+  to {
+    background-color: black;
+    color: #000000;
+  }
+}
+
+
+label:focus {
+  background-color: #000000;
+}
+
+#cpu {
+  background-color: @primary;
+  color: @text;
+}
+
+#memory {
+  background-color: @primary;
+  color: @text;
+}
+
+#disk {
+  background-color: @primary;
+  color: @text;
+}
+
+
+#network {
+  background-color: @primary;
+  color: @text;
+}
+
+#network.disconnected {
+  background-color: @primary;
+  color: red;
+}
+
+#pulseaudio {
+  background-color: @primary;
+  color: @text;
+}
+
+#pulseaudio.muted {
+  background-color: @primary;
+  color: red;
+}
+
+#custom-media {
+  background-color: @primary;
+  color: @text;
+}
+
+#custom-media.custom-spotify {
+  background-color: @primary;
+  color: @text;
+
+}
+
+#custom-media.custom-vlc {
+  background-color: @primary;
+  color: @text;
+}
+
+#custom-power {
+  background-color: @primary;
+}
+
+#custom-launcher {
+  background-color: @primary;
+}
+
+
+#custom-snip {
+  background-color: @primary;
+  color: black;
+  font-size: 20px;
+}
+
+#custom-layout {
+  background-color: @primary;
+  color: black;
+  font-size: 18px;
+}
+
+#workspaces {
+  background-color: @primary;
+  padding: 3px 10px 3px 10px;
+  border-color: @text;
+  border-width: 2px;
+  border-style: solid;
+
+}
+
+
+#temperature {
+  background-color: @primary;
+  color: black;
+}
+
+#temperature.critical {
+  background-color: @primary;
+  color: @text;
+}
+
+#tray {
+  -gtk-icon-effect: dim;
+  background-color: @primary;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+  background-color: blue;
+  color: blue;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @primary;
+  color: @primary;
+}
+
+#idle_inhibitor {
+  background-color: @primary;
+
+}
+
+#idle_inhibitor.activated {
+  background-color: @primary;
+  color: @text;
+
+}
+
+#language {
+  background-color: @primary;
+  color: black;
+  min-width: 16px;
+  padding-left: 8px;
+}
+
+#keyboard-state {
+  background: #97e1ad;
+  color: #000000;
+  min-width: 16px;
+}
+
+#keyboard-state>label {
+  padding: 0px 5px;
+}
+
+#keyboard-state>label.locked {
+  background: rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,66 @@
+@import "/home/br0wnie/.config/colors.css";
+
+* {
+  font-family: Iosevka;
+  font-size: 32px;
+}
+
+@keyframes showup {
+  from {
+    opacity: 0.0;
+  }
+
+  to {
+    opacity: 1.0;
+  }
+}
+
+window {
+  background-color: transparent;
+  animation-name: showup;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(.1, 1, 0, 1);
+
+}
+
+
+#input {
+  background-color: @primary-wofi;
+  border-radius: 20px 20px 0px 0px;
+  color: @text;
+  border-color: transparent;
+  margin-bottom: 20px;
+}
+
+#inner-box {
+  margin: 0px 50px 0px 50px;
+  background-color: @primary-wofi;
+  /* border-radius: 0px 0px 20px 20px; */
+}
+
+#img {
+  padding: 10px;
+}
+
+#entry {
+  margin: 10px;
+}
+
+#entry:selected {
+  background-color: #fb958b;
+  border-style: solid;
+  border-width: 0px;
+  border-radius: 20px;
+  border-color: transparent;
+  color: @primary-wofi;
+}
+
+
+
+#outer-box {
+  /* Spacing and shape */
+  padding: 50px;
+  border-radius: 50px;
+  background-color: @primary-wofi;
+
+}

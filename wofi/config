@@ -1,0 +1,10 @@
+allow_images=true
+hide_scroll=true
+prompt=Beautiful day innit?
+no_actions=true
+dynamic_lines=true
+height=600
+width=1000
+insensitive=true
+
+

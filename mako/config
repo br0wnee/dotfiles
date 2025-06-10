@@ -1,0 +1,13 @@
+output=DP-2
+anchor=bottom-center
+default-timeout=5000 
+max-visible=10
+layer=top
+background-color=#4c566add
+text-color=#d8dee9
+border-color=#434c5e
+border-radius=7
+max-icon-size=48
+outer-margin=0,0,20,0
+
+

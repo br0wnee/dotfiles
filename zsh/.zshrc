@@ -1,17 +1,18 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-#export PATH="$HOME/CLion/bin:$VULKAN_SDK/bin:$PATH"
-
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="alanpeabody" # set by `omz`
+ZSH_THEME="powerlevel10k/powerlevel10k" # set by `omz`
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -35,7 +36,7 @@ ZSH_THEME="alanpeabody" # set by `omz`
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -43,14 +44,12 @@ ZSH_THEME="alanpeabody" # set by `omz`
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -73,7 +72,9 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+
+[[ -z "${plugins[*]}" ]] && plugins=(git fzf extract zsh-autosuggestions zsh-syntax-highlighting)
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -132,55 +133,47 @@ remove_from_path() {
 }
 
 
-# ranger() {
-# 	local IFS=$'\t\n'
-# 	local tempfile="$(mktemp -t tmp.XXXXXX)"
-# 	local ranger_cmd=(
-# 		command
-# 		ranger
-# 		--cmd="map Q chain shell echo %d > "$tempfile"; quitall"
-# 	)
-	
-# 	${ranger_cmd[@]} "$@"
-# 	if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
-# 		cd -- "$(cat "$tempfile")" || return
-# 	fi
-# 	command rm -f -- "$tempfile" 2>/dev/null
-# }
+export HISTCONTROL=ignoreboth
 
+export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
+
+export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
+export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
+
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 #Change zcompdump dir
-export ZDOTDIR=/home/bartek/.config/zsh
+export ZDOTDIR=/home/br0wnie/.config/zsh
 
 #Set the editor
 export EDITOR=hx
 
 # Custom smth?
 eval "$(zoxide init zsh)"
-source $ZSH_CUSTOM/key-bindings.zsh
-
 
 # Custom aliases
 
-alias "ls=eza --tree --level=1"
+# alias "ls=eza --tree --level=1"
 alias cd=z
-alias "codium=codium --ozone-platform-hint=wayland"
-alias config='/usr/bin/git --git-dir=/home/bartek/.cfg/ --work-tree=/home/bartek'
-alias ncspot='flatpak run io.github.hrkfdn.ncspot'
-alias prime-run='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
-alias gpu-temp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'
+# alias "codium=codium --ozone-platform-hint=wayland"
+alias config='/usr/bin/git --git-dir=/home/br0wnie/.cfg/ --work-tree=/home/br0wnie'
+# alias ncspot='flatpak run io.github.hrkfdn.ncspot'
+# alias prime-run='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
+# alias gpu-temp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'
 alias mpv-term='mpv --profile=sw-fast --vo=kitty --vo-kitty-use-shm=yes'
 
 #Custom paths
 #add_to_path "$HOME/Clion/bin"
 #add_to_path "$HOME/raylib"
-add_to_path /home/bartek/.cargo/bin
-add_to_path /home/bartek/.zig
-add_to_path /home/bartek/.marksman
-add_to_path /home/bartek/.yazi
-add_to_path /home/bartek/.swing
-add_to_path /home/bartek/.zls
-add_to_path /home/bartek/.presenterm
-add_to_path /home/bartek/.tdf/release
+add_to_path /home/br0wnie/.cargo/bin
+# add_to_path /home/br0wnie/.zig
+# add_to_path /home/br0wnie/.marksman
+# add_to_path /home/br0wnie/.yazi
+# add_to_path /home/br0wnie/.swing
+# add_to_path /home/br0wnie/.zls
+# add_to_path /home/br0wnie/.presenterm
+# add_to_path /home/br0wnie/.tdf/release
+add_to_path /home/br0wnie/.local/bin
+
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -190,3 +183,5 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
