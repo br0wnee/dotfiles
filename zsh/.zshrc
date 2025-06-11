@@ -142,7 +142,7 @@ export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
 
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 #Change zcompdump dir
-export ZDOTDIR=/home/br0wnie/.config/zsh
+export ZDOTDIR=/home/$USER/.config/zsh
 
 #Set the editor
 export EDITOR=hx
@@ -155,7 +155,7 @@ eval "$(zoxide init zsh)"
 # alias "ls=eza --tree --level=1"
 alias cd=z
 # alias "codium=codium --ozone-platform-hint=wayland"
-alias config='/usr/bin/git --git-dir=/home/br0wnie/.cfg/ --work-tree=/home/br0wnie'
+alias config='/usr/bin/git --git-dir=/home/$USER/.cfg/ --work-tree=/home/$USER'
 # alias ncspot='flatpak run io.github.hrkfdn.ncspot'
 # alias prime-run='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
 # alias gpu-temp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'
@@ -164,15 +164,15 @@ alias mpv-term='mpv --profile=sw-fast --vo=kitty --vo-kitty-use-shm=yes'
 #Custom paths
 #add_to_path "$HOME/Clion/bin"
 #add_to_path "$HOME/raylib"
-add_to_path /home/br0wnie/.cargo/bin
-# add_to_path /home/br0wnie/.zig
-# add_to_path /home/br0wnie/.marksman
-# add_to_path /home/br0wnie/.yazi
-# add_to_path /home/br0wnie/.swing
-# add_to_path /home/br0wnie/.zls
-# add_to_path /home/br0wnie/.presenterm
-# add_to_path /home/br0wnie/.tdf/release
-add_to_path /home/br0wnie/.local/bin
+add_to_path /home/$USER/.cargo/bin
+# add_to_path /home/$USER/.zig
+# add_to_path /home/$USER/.marksman
+# add_to_path /home/$USER/.yazi
+# add_to_path /home/$USER/.swing
+# add_to_path /home/$USER/.zls
+# add_to_path /home/$USER/.presenterm
+# add_to_path /home/$USER/.tdf/release
+add_to_path /home/$USER/.local/bin
 
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
