@@ -91,9 +91,29 @@ make
 
 echo
 
+#=====================================================================
+# 4. INSTALL GTK & ICON THEMES
+#=====================================================================
+echo "-> [4/8] Installing GTK themes and icons..."
+# We clone the repos to the home directory, run the installers, and then clean up.
+# The installers need sudo to place files in /usr/share/themes and /usr/share/icons.
+
+# Install Layan GTK Theme
+echo "   Installing Layan GTK Theme..."
+git clone https://github.com/vinceliuice/Layan-gtk-theme.git ~/Layan-gtk-theme
+(cd ~/Layan-gtk-theme && sudo ./install.sh -c dark -l)
+rm -rf ~/Layan-gtk-theme
+
+# Install Tela Icon Theme
+echo "   Installing Tela Icon Theme..."
+git clone https://github.com/vinceliuice/Tela-icon-theme.git ~/Tela-icon-theme
+(cd ~/Tela-icon-theme && sudo ./install.sh ubuntu)
+rm -rf ~/Tela-icon-theme
+echo
+
 
 #---------------------------------------------------------------------
-# 5. ENABLE SYSTEMD SERVICES
+# 6. ENABLE SYSTEMD SERVICES
 #---------------------------------------------------------------------
 echo "-> [5/6] Enabling essential systemd services..."
 # The services must be installed before you can enable them.
@@ -109,7 +129,7 @@ echo
 
 
 #---------------------------------------------------------------------
-# 6. FINAL USER & SYSTEM CONFIGURATION
+# 7. FINAL USER & SYSTEM CONFIGURATION
 #---------------------------------------------------------------------
 echo "-> [6/6] Performing final configurations..."
 
