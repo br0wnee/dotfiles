@@ -6,7 +6,6 @@ hyprpicker
 wget
 unzip
 kitty
-dolphin
 wofi
 nwg-bar
 thorium-browser
@@ -50,3 +49,8 @@ gamemode
 swayimg
 zoxide
 networkmanager
+thunar
+thunar-volman
+thunar-shares-plugin
+ark
+ffmpegthumbnailer
