@@ -7,6 +7,12 @@ Just install it lol
 
 ## How to use (in case i forgot)
 
+clone with
+
+```
+git clone --recurse-submodules https://github.com/br0wnee/dotfiles
+```
+
 To link all the configs
 
 ```
@@ -19,4 +25,3 @@ make delete
 ```
 ## TODO!
 
-- [ ] fix the submodule issue 
