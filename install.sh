@@ -133,6 +133,14 @@ echo
 #---------------------------------------------------------------------
 echo "-> [6/6] Performing final configurations..."
 
+echo "Installing Oh My Zsh..."
+if [ -d "$HOME/.oh-my-zsh" ]; then
+    echo "   Oh My Zsh is already installed. Skipping."
+else
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+echo
+
 # Change user's default shell to Zsh if it's installed
 if command -v zsh &> /dev/null; then
     echo "   Changing default shell to Zsh for user $USER."
