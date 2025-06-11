@@ -8,7 +8,7 @@ unzip
 kitty
 wofi
 nwg-bar
-thorium-browser
+thorium-browser-avx2-bin
 mako
 bibata-cursor-theme-bin
 xdg-user-dirs
@@ -38,7 +38,7 @@ tela-icon-theme
 tumbler
 gvfs
 pavucontrol
-ttc-iosevka 
+ttc-iosevka
 flatpak
 steam
 ttf-liberation
@@ -54,3 +54,6 @@ thunar-volman
 thunar-shares-plugin
 ark
 ffmpegthumbnailer
+sddm
+stow
+nwg-look
