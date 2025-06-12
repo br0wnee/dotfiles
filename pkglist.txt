@@ -13,6 +13,7 @@ mako
 bibata-cursor-theme-bin
 xdg-user-dirs
 xdg-desktop-portal-hyprland
+xdg-utils
 grimblast
 helix
 qt5-wayland
@@ -59,3 +60,5 @@ stow
 nwg-look
 trash-cli
 udiskie
+gpu-screen-recorder
+clang
