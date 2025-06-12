@@ -163,6 +163,26 @@ window#waybar.hidden {
   /* Adjusted padding */
 }
 
+.modules-center {
+  background: #89839C;
+  padding: 5px 2px 5px 2px;
+  border-radius: 10px;
+}
+
+.modules-left {
+  background: #89839C;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 0px;
+}
+
+.modules-right {
+  background: #89839C;
+  padding: 5px;
+  border-radius: 10px;
+  margin-right: 0px;
+}
+
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left>widget:first-child>#workspaces {
   margin-left: 0;

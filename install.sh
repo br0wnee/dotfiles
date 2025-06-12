@@ -41,7 +41,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 #---------------------------------------------------------------------
 # 1. INSTALL AUR HELPER (PARU)
 #---------------------------------------------------------------------
-echo "-> [1/6] Installing AUR Helper (paru)..."
+echo "-> [1/7] Installing AUR Helper (paru)..."
 # We need base-devel and git to build packages.
 sudo pacman -S --noconfirm --needed base-devel git
 # Clone and build paru if it's not already installed
@@ -59,7 +59,7 @@ echo
 #---------------------------------------------------------------------
 # 2. ENABLE MULTILIB REPOSITORY
 #---------------------------------------------------------------------
-echo "-> [2/6] Enabling the [multilib] repository..."
+echo "-> [2/7] Enabling the [multilib] repository..."
 sudo sed -i '/^#\[multilib\]/{s/^#//;n;s/^#//}' /etc/pacman.conf
 echo "   Synchronizing package databases..."
 sudo pacman -Syu --noconfirm
@@ -69,7 +69,7 @@ echo
 #---------------------------------------------------------------------
 # 3. INSTALL ALL PACKAGES FROM pkglist.txt
 #---------------------------------------------------------------------
-echo "-> [3/6] Installing all packages from pkglist.txt..."
+echo "-> [3/7] Installing all packages from pkglist.txt..."
 # We use paru to install from both official repos and the AUR.
 # --needed prevents re-installing packages that are already present.
 if [ -f "pkglist.txt" ]; then
@@ -83,7 +83,7 @@ echo
 #---------------------------------------------------------------------
 # 4. SYMLINK DOTFILES USING GNU STOW
 #---------------------------------------------------------------------
-echo "-> [4/6] Symlinking dotfiles using Stow..."
+echo "-> [4/7] Symlinking dotfiles using Stow..."
 # The -R flag tells stow to "restow", cleaning up old links and relinking.
 # Add all your application config folders here.
  
@@ -94,7 +94,7 @@ echo
 #=====================================================================
 # 4. INSTALL GTK & ICON THEMES
 #=====================================================================
-echo "-> [4/8] Installing GTK themes and icons..."
+echo "-> [5/7] Installing GTK themes and icons..."
 # We clone the repos to the home directory, run the installers, and then clean up.
 # The installers need sudo to place files in /usr/share/themes and /usr/share/icons.
 
@@ -115,13 +115,13 @@ echo
 #---------------------------------------------------------------------
 # 6. ENABLE SYSTEMD SERVICES
 #---------------------------------------------------------------------
-echo "-> [5/6] Enabling essential systemd services..."
-# The services must be installed before you can enable them.
+echo "-> [6/7] Enabling essential systemd services..."
 
-# Networking
+# Services
 sudo systemctl enable NetworkManager.service
-systemctl enable --user waybar
-sudo systemctl enable sddm
+sudo systemctl enable sddm.service
+systemctl enable --user waybar.service
+systemctl enable --user --now hypridl.service
 
  
 
@@ -131,13 +131,24 @@ echo
 #---------------------------------------------------------------------
 # 7. FINAL USER & SYSTEM CONFIGURATION
 #---------------------------------------------------------------------
-echo "-> [6/6] Performing final configurations..."
+echo "-> [7/7] Performing final configurations..."
 
 echo "Installing Oh My Zsh..."
 if [ -d "$HOME/.oh-my-zsh" ]; then
     echo "   Oh My Zsh is already installed. Skipping."
 else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+echo
+
+echo "Installing SDDM Theme"
+if [ -d "/usr/share/sddm/themes/monochrome" ]; then
+    echo "   Theme installed. Skipping."
+else
+    git clone git@gitlab.com:pwyde/monochrome-kde.git
+    sudo cp -r $HOME/monochrome-kde/sddm/themes/monochrome /usr/share/sddm/themes
+    echo -e "[Theme] \nCurrent=monochrome" | sudo tee -a /usr/lib/sddm/sddm.conf.d/default.conf   
+    rm -rf monochrome-kde
 fi
 echo
 

@@ -12,7 +12,6 @@
     "cpu",
     "memory",
     "disk",
-    "temperature"
   ],
   "modules-center": [
     "custom/launcher",
@@ -22,8 +21,6 @@
   ],
   "modules-right": [
     "custom/snip",
-    "backlight",
-    "keyboard-state",
     "network",
     "tray",
     "clock"
@@ -97,15 +94,17 @@
     "format-alt": "{:%Y-%m-%d}"
   },
   "cpu": {
+    "interval": 1,
     "format": "{usage}% ",
-    "tooltip": false
+    "tooltip": true
   },
   "memory": {
     "format": "{}% "
   },
   "disk": {
+    "path": "/home/br0wnie/",
     "interval": 30,
-    "format": "{percentage_free}% free on {path}",
+    "format": "{percentage_used}% ",
   },
   "temperature": {
     // "thermal-zone": 2,
