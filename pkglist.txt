@@ -57,3 +57,4 @@ ffmpegthumbnailer
 sddm
 stow
 nwg-look
+trash-cli

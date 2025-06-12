@@ -84,9 +84,7 @@ echo
 # 4. SYMLINK DOTFILES USING GNU STOW
 #---------------------------------------------------------------------
 echo "-> [4/7] Symlinking dotfiles using Stow..."
-# The -R flag tells stow to "restow", cleaning up old links and relinking.
-# Add all your application config folders here.
- 
+
 make
 
 echo
@@ -121,8 +119,10 @@ echo "-> [6/7] Enabling essential systemd services..."
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable sddm.service
 systemctl enable --user waybar.service
-systemctl enable --user --now hypridl.service
-
+systemctl enable --user hypridl.service
+systemctl enable --user hyprpaper.service
+systemctl enable --user mako.service
+systemctl enable --user hyprpolkitagent.service
  
 
 echo
