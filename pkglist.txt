@@ -58,3 +58,4 @@ sddm
 stow
 nwg-look
 trash-cli
+udiskie
