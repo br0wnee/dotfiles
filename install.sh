@@ -145,7 +145,7 @@ echo "Installing SDDM Theme"
 if [ -d "/usr/share/sddm/themes/monochrome" ]; then
     echo "   Theme installed. Skipping."
 else
-    git clone git@gitlab.com:pwyde/monochrome-kde.git
+    git clone https://gitlab.com/pwyde/monochrome-kde
     sudo cp -r $HOME/monochrome-kde/sddm/themes/monochrome /usr/share/sddm/themes
     echo -e "[Theme] \nCurrent=monochrome" | sudo tee -a /usr/lib/sddm/sddm.conf.d/default.conf   
     rm -rf monochrome-kde
