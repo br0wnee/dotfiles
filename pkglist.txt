@@ -35,7 +35,6 @@ power-profiles-daemon
 imagemagick
 eza
 yazi
-tela-icon-theme
 tumbler
 gvfs
 pavucontrol
@@ -62,3 +61,5 @@ trash-cli
 udiskie
 gpu-screen-recorder
 clang
+pulseaudio
+alsa-tools

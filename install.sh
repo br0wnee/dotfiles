@@ -119,7 +119,7 @@ echo "-> [6/7] Enabling essential systemd services..."
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable sddm.service
 systemctl enable --user waybar.service
-systemctl enable --user hypridl.service
+systemctl enable --user hypridle.service
 systemctl enable --user hyprpaper.service
 systemctl enable --user mako.service
 systemctl enable --user hyprpolkitagent.service
@@ -138,6 +138,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     echo "   Oh My Zsh is already installed. Skipping."
 else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    rm $HOME/.zshrc
 fi
 echo
 
@@ -146,7 +147,7 @@ if [ -d "/usr/share/sddm/themes/monochrome" ]; then
     echo "   Theme installed. Skipping."
 else
     git clone https://gitlab.com/pwyde/monochrome-kde
-    sudo cp -r $HOME/monochrome-kde/sddm/themes/monochrome /usr/share/sddm/themes
+    sudo cp -r monochrome-kde/sddm/themes/monochrome /usr/share/sddm/themes
     echo -e "[Theme] \nCurrent=monochrome" | sudo tee -a /usr/lib/sddm/sddm.conf.d/default.conf   
     rm -rf monochrome-kde
 fi
