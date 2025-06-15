@@ -99,12 +99,14 @@
     "tooltip": true
   },
   "memory": {
-    "format": "{}% "
+    "format": "{}% ",
+    "tooltip-format": "main: {used}/{total} GiB\nswap: {swapUsed}/{swapTotal} GiB",
   },
   "disk": {
     "path": "/home/br0wnie/",
     "interval": 30,
     "format": "{percentage_used}% ",
+    "on-click": "thunar"
   },
   "temperature": {
     // "thermal-zone": 2,

@@ -118,6 +118,7 @@ echo "-> [6/7] Enabling essential systemd services..."
 # Services
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable sddm.service
+sudo systemctl enable firewalld.service
 systemctl enable --user waybar.service
 systemctl enable --user hypridle.service
 systemctl enable --user hyprpaper.service

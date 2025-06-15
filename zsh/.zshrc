@@ -118,7 +118,6 @@ add_to_path() {
             # echo "$1 is already in PATH"
         fi
     else
-        echo "Directory $1 does not exist"
     fi
 }
 
@@ -145,7 +144,8 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 export ZDOTDIR=/home/$USER/.config/zsh
 
 #Set the editor
-export EDITOR=hx
+alias hx=helix
+export EDITOR=helix
 
 # Custom smth?
 eval "$(zoxide init zsh)"
