@@ -37,6 +37,7 @@ eza
 yazi
 tumbler
 gvfs
+gvfs-smb
 pavucontrol
 ttc-iosevka
 flatpak
