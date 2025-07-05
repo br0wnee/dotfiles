@@ -142,6 +142,8 @@ export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 #Change zcompdump dir
 export ZDOTDIR=/home/$USER/.config/zsh
+export XDG_CURRENT_DESKTOP=Hyprland
+export DISPLAY=:0.0
 
 #Set the editor
 alias hx=helix
@@ -155,7 +157,6 @@ eval "$(zoxide init zsh)"
 # alias "ls=eza --tree --level=1"
 alias cd=z
 # alias "codium=codium --ozone-platform-hint=wayland"
-alias config='/usr/bin/git --git-dir=/home/$USER/.cfg/ --work-tree=/home/$USER'
 # alias ncspot='flatpak run io.github.hrkfdn.ncspot'
 # alias prime-run='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
 # alias gpu-temp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'

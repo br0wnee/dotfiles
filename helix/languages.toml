@@ -1,7 +1,7 @@
 # Language support configuration.
 # See the languages documentation: https://docs.helix-editor.com/master/languages.html
 
-use-grammars = { only = [ "c", "cpp", "bash", "python", "css"] }
+use-grammars = { only = [ "c", "cpp", "bash", "python", "css", "markdown"] }
 
 [language-server]
 
@@ -242,3 +242,7 @@ name = "css"
 source = { git = "https://github.com/tree-sitter/tree-sitter-css", rev = "769203d0f9abe1a9a691ac2b9fe4bb4397a73c51" }
 
 
+# Markdown
+[[language]]
+name = "markdown"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}

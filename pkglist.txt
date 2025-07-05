@@ -69,6 +69,7 @@ alsa-tools
 man
 man-db
 zathura
+zathura-pdf-poppler
 ttf-font-awesome
 ttf-roboto-mono-nerd
 timeshift
@@ -77,3 +78,4 @@ firewalld
 videomass
 yt-dlp
 swayosd-git
+cliphist

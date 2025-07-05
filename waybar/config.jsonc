@@ -1,26 +1,32 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 36,
-  "spacing": 0,
-  "margin-top": 0,
-  "margin-bottom": 5,
+  "spacing": 4,
+  "reload_style_on_change": true,
   // Choose the order of the modules
   "modules-left": [
     "idle_inhibitor",
+    "custom/separator",
     "pulseaudio",
+    "custom/separator",
     "cpu",
+    "temperature",
+    "custom/separator",
     "memory",
+    "custom/separator",
     "disk",
+    "custom/separator",
+    "custom/media",
   ],
   "modules-center": [
     "custom/launcher",
-    "custom/media",
+    "custom/separator",
     "hyprland/workspaces",
+    "custom/separator",
     "custom/power"
   ],
   "modules-right": [
-    "custom/snip",
+    "hyprland/language",
     "network",
     "tray",
     "clock"
@@ -34,6 +40,11 @@
       "locked": "",
       "unlocked": ""
     }
+  },
+  "custom/separator":{
+    "format": " ",
+    "interval": "once",
+    "tooltip": false,
   },
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -89,7 +100,7 @@
     "spacing": 10
   },
   "clock": {
-	"format": "{:%A, %B %d, %Y  %R} ",
+	"format": "{:%A, %B %d, %Y  %R}  ",
 	"tooltip-format": "<tt><small>{calendar}</small></tt>",
 	"calendar": {
 		"mode"          : "year",
@@ -119,6 +130,12 @@
     "tooltip": true,
     "on-click": "kitty btop"
   },
+  "temperature": {
+    "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+    "input-filename": "temp1_input",
+    "critical-threshold": 80,
+    "format": "{temperatureC}C "
+  },
   "memory": {
     "format": "{}% ",
     "tooltip-format": "main: {used}/{total} GiB\nswap: {swapUsed}/{swapTotal} GiB",
@@ -130,8 +147,7 @@
     "on-click": "thunar",
   },
   "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
     "critical-threshold": 80,
     // "format-critical": "{temperatureC}°C {icon}",
     "format": "{temperatureC}°C {icon}",
@@ -181,19 +197,15 @@
     "on-click": "pavucontrol"
   },
   "custom/media": {
-    "format": "{icon} {text}",
+    "format": "{text}",
     "return-type": "json",
-    "max-length": 15,
-    "format-icons": {
-      "spotify": " ",
-      "default": " "
-    },
+    "max-length": 25,
     "escape": true,
     "exec": "$HOME/.config/scripts/mediaplayer.py 2> /dev/null",
     "on-click": "playerctl play-pause"
   },
   "custom/launcher": {
-    "format": "Apps",
+    "format": " Apps",
     "on-click": "wofi --show drun",
     "tooltip-format": ""
   },
