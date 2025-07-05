@@ -1,3 +1,7 @@
 README.md
 makefile
 .git
+.gitmodules
+.gitignore
+pkglist.txt
+install.sh
