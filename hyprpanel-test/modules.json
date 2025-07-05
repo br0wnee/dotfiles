@@ -1,0 +1,9 @@
+{
+  "custom/gputemp": {
+    "icon": "󰾲",
+    "interval": 1000,
+    "truncationSize": -1,
+    "label": "GPU: {devices[0].Sensors["Edge Temperature"].value}",
+    "execute": "amdgpu_top --json -n 1"
+  }
+}

@@ -1,7 +1,7 @@
 # Language support configuration.
 # See the languages documentation: https://docs.helix-editor.com/master/languages.html
 
-use-grammars = { only = [ "c", "cpp", "bash", "python", "css", "markdown"] }
+use-grammars = { only = [ "c", "cpp", "bash", "python", "css", "markdown", "json"] }
 
 [language-server]
 
