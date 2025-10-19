@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# 1. Get the query from fuzzel.
+# The 'echo' provides dummy input to make fuzzel open and wait.
+query=$(echo | fuzzel -d -l 0 --placeholder "Type your search")
+
+# 2. If the query is empty (user pressed Esc), do nothing.
+if [ -z "$query" ]; then
+    exit 0
+fi
+
+# 3. Check the query for a bang prefix
+case "$query" in
+    "!g "*)
+        # It's a Google search.
+        # Extract the term *after* "!g "
+        term="${query#!g }"
+        
+        # URL-encode the term (see note below)
+        encoded_term=$(jq -sRr @uri <<< "$term")
+        
+        # Launch zen (as browser) with the full search URL
+        zen "https://www.google.com/search?q=$encoded_term"
+        ;;
+
+    "!yt "*)
+        # It's a YouTube search.
+        # Extract the term *after* "!yt "
+        term="${query#!yt }"
+        
+        # URL-encode the term
+        encoded_term=$(jq -sRr @uri <<< "$term")
+        
+        # Launch zen with the YouTube search URL
+        zen "https://www.youtube.com/results?search_query=$encoded_term"
+        ;;
+
+    "!w "*)
+        term="{query#!w }"
+        encoded_term=$(jq -sRr @uri <<< "$term")
+        zen "https://en.wikipedia.org/wiki/Special:Search?search=$encoded_term"
+        ;;
+    *)
+        # No prefix found. Use your original default command.
+        zen --search "$query"
+        ;;
+esac

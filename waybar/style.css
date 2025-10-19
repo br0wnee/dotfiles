@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
+    background-color: rgba(43, 48, 59, 1);
     color: #ffffff;
 }
 
@@ -87,6 +87,7 @@ window#waybar.hidden {
 #workspaces button.active {
   background: inherit;
   box-shadow: inset 0px 0px 15px 15px #B39DF3;
+  box-shadow: inset 0px 0px 15px 15px #E4D0B5;
   color: #181819;
 }
 

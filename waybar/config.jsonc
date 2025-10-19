@@ -16,7 +16,7 @@
     "custom/separator",
     "disk",
     "custom/separator",
-    "custom/media",
+    "custom/media"
   ],
   "modules-center": [
     "custom/launcher",
@@ -27,8 +27,11 @@
   ],
   "modules-right": [
     "hyprland/language",
+    "custom/separator",
     "network",
+    "custom/separator",
     "tray",
+    "custom/separator",
     "clock"
   ],
   // Modules configuration
@@ -86,7 +89,7 @@
     ],
   },
   "hyprland/language": {
-    "format": " {}",
+    "format": "  {}",
   },
   "idle_inhibitor": {
     "format": "{icon}",
@@ -205,8 +208,8 @@
     "on-click": "playerctl play-pause"
   },
   "custom/launcher": {
-    "format": " Apps",
-    "on-click": "wofi --show drun",
+    "format": "Apps",
+    "on-click": "fuzzel",
     "tooltip-format": ""
   },
   "custom/power": {
