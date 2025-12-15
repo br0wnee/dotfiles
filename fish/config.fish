@@ -17,6 +17,8 @@ starship init fish | source
 set LV2_PATH ~/.lv2
 set LC_ALL "C.UTF-8"
 
+set -Ux fish_user_paths ~/go/bin
+
 fish_add_path ~/.local/bin
 
 alias pamcan pacman

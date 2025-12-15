@@ -2,7 +2,7 @@
 
 # 1. Get the query from fuzzel.
 # The 'echo' provides dummy input to make fuzzel open and wait.
-query=$(echo | fuzzel -d -l 0 --placeholder "Type your search")
+query=$(echo | rofi -dmenu -l 0 -config /home/$USER/.config/config.rasi)
 
 # 2. If the query is empty (user pressed Esc), do nothing.
 if [ -z "$query" ]; then

@@ -23,7 +23,6 @@ gamemode
 git
 gpu-screen-recorder
 gpu-screen-recorder-ui
-grimblast
 grimblast-git
 gvfs
 gvfs-mtp
@@ -94,7 +93,6 @@ vesktop
 videomass
 vim
 vscode-json-languageserver
-walker
 waybar
 wf-recorder-git
 wget
@@ -111,4 +109,7 @@ yt-dlp
 zathura
 zathura-pdf-poppler
 zoxide
-zsh
+fish
+rofi-wayland
+virt-manager
+qemu

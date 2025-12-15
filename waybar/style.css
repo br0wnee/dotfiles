@@ -1,6 +1,14 @@
 * {
-  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Iosevka Nerd Font", Roboto, Helvetica, Arial, sans-serif;
   font-size: 18px;
+}
+
+#waybar.DP-1 * {
+    font-size: 24px;
+}
+
+#waybar.DP-2 * {
+    font-size: 20px;
 }
 
 window#waybar {
@@ -25,19 +33,15 @@ window#waybar.hidden {
   border-radius: 0px;
 }
 
-#idle_inhibitor {
-  margin-right: 0.8rem;
-}
-
-#disk {
-  margin-right: 0.8rem;
-}
-
-#custom-separator {
-  background-color: #e2e2e3;  
-  font-size: 12px;
-  margin: 4px 4px 4px 4px;
-  border-radius: 6px;
+#idle_inhibitor,
+#disk,
+#pulseaudio,
+#cpu,
+#memory,
+#custom-power,
+#custom-launcher,
+#custom-media,
+#temperature {
 }
 
 #custom-power {
@@ -49,32 +53,12 @@ window#waybar.hidden {
   min-width: 100px;
 }
 
-
-#pulseaudio {
-  margin-right: 0.7em;
-}
-
 #pulseaudio.muted {
   margin-right: 0;
 }
 
-#cpu {
-  margin-right: 0.3em;
-}
 #temperature.critical{
   color: #FC5D7C;
-}
-#memory {
-  margin-right: 0.3em;
-}
-
-#custom-power {
-  margin-right: 0.3em;
-  margin-left: 0.3em;
-}
-
-#custom-launcher {
-  margin-right: 0.3em;
 }
 
 #workspaces button {
@@ -82,6 +66,7 @@ window#waybar.hidden {
     transition-duration: 0s;
     border: none;
     border-radius: 0;
+    padding: 0 5px;
 }
 
 #workspaces button.active {
@@ -95,4 +80,42 @@ window#waybar.hidden {
   background-color: #eb4d4b;
 }
 
+#workspaces button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
+/* --- Module Spacing and Separators --- */
+
+/* General spacing for modules on the left and right */
+#idle_inhibitor, #pulseaudio, #cpu, #temperature, #memory, #disk, #custom-media,
+#language, #network, #tray, #clock {
+    padding: 0 8px;
+}
+
+/* General separators for modules on the left and right */
+#pulseaudio,
+#cpu,
+#memory,
+#disk,
+#custom-media,
+#network,
+#tray,
+#clock {
+    border-left: 4px solid rgb(255, 255, 255);
+    padding-left: 8px; /* Overrides general padding-left */
+}
+
+/* Special compact spacing for center modules */
+#custom-launcher, #workspaces, #custom-power {
+    padding: 0px;
+}
+
+/* Separators for center modules */
+#workspaces,
+#custom-power {
+    border-left: 4px solid rgb(255, 255, 255);
+}
+#custom-power {
+  padding-left: 6px;
+  margin-left: -4px; /* Negative margin to counteract global spacing */
+}
